@@ -1,0 +1,30 @@
+from graphviz import Digraph
+
+# Tạo đồ thị dạng flowchart
+flowchart = Digraph("Traffic_Sign_Collection_Process", format="png")
+flowchart.attr(rankdir="TB", size="8")
+
+# Thêm các bước vào flowchart
+flowchart.node("1", "Xác định khu vực cần thu thập dữ liệu", shape="rectangle", style="filled", fillcolor="lightblue")
+flowchart.node("2", "Chuẩn bị thiết bị", shape="rectangle", style="filled", fillcolor="lightblue")
+flowchart.node("3", "Thu thập hình ảnh thực tế", shape="rectangle", style="filled", fillcolor="lightblue")
+flowchart.node("4", "Kiểm tra dữ liệu", shape="rectangle", style="filled", fillcolor="lightblue")
+flowchart.node("5", "Bổ sung hình ảnh từ internet (nếu cần)", shape="rectangle", style="filled", fillcolor="lightblue")
+flowchart.node("6", "Tổng hợp và phân loại dữ liệu", shape="rectangle", style="filled", fillcolor="lightblue")
+flowchart.node("7", "Lưu trữ và sử dụng dữ liệu", shape="rectangle", style="filled", fillcolor="lightblue")
+
+# Thêm các mũi tên để biểu diễn luồng công việc
+flowchart.edges([
+    ("1", "2"),
+    ("2", "3"),
+    ("3", "4"),
+    ("4", "5"),
+    ("5", "6"),
+    ("6", "7")
+])
+
+# Xuất biểu đồ
+flowchart_path = "Desktop"
+flowchart.render(flowchart_path, cleanup=True)
+
+flowchart_path
